@@ -1,9 +1,13 @@
 <div ng-controller="applicationCtrl">
     <h1>Application</h1>
     <h2>{{userConnected.records.name}}</h2>
-    <div ng-repeat="application in applications">
+
+    <div ng-repeat="application in ArrayApp">
         Mon Application : {{application.title}}<br>
         slogan : {{application.slogan}}<br>
+        <button>Modifier</button>
+        <button>Ajouter un Tag</button>
+        <button ng-click="deleteApp($index)">Supprimer</button>
         <h4 ng-show="application.tags.length > 0">Mes Tags</h4>
         <div ng-repeat="tag in application.tags">
             - {{tag.name}}
