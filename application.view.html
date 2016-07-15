@@ -1,12 +1,13 @@
 <div ng-controller="applicationCtrl">
-<h1>Application</h1>
-    {{userConnected.records.name}}
+    <h1>Application</h1>
+    <h2>{{userConnected.records.name}}</h2>
     <div ng-repeat="application in applications">
-        Mon Applicatioin : {{application.title}}<br>
+        Mon Application : {{application.title}}<br>
         slogan : {{application.slogan}}<br>
-        <h4>Mes Tags</h4>
+        <h4 ng-show="application.tags.length > 0">Mes Tags</h4>
         <div ng-repeat="tag in application.tags">
             - {{tag.name}}
         </div>
+        <div>-----------------</div>
     </div>
 </div>
