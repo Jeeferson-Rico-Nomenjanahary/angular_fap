@@ -15,4 +15,20 @@ angular.module('common.services')
         }, function (error) {
             $scope.alerts.push({ msg: 'Une erreur est survenue', type: 'danger' });
         });
+
+        $scope.create = function(){
+            application = {
+                title : $scope.title,
+                web : $scope.web,
+                slogan : $scope.slogan
+            }
+            applicationFactory.createApplication(application).then(
+                function(data){
+                    $scope.alerts.push({ msg: 'Vos données ont été enregister', type: 'success' });
+                },
+                function(error){
+                    $scope.alerts.push({ msg: 'Une erreur est survenue', type: 'danger' });
+                }
+            )
+        }
     });
