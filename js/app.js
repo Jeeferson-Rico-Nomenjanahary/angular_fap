@@ -78,7 +78,7 @@ var app = angular
     $rootScope.userConnected = JSON.parse(strUserConnected);
     $rootScope.header = {
         headers: {
-            'Authorization': $rootScope.userConnected.records.apiKey
+            'Authorization': $rootScope.userConnected.records.api_key
             //'password': $rootScope.userConnected.user.password,
             //'login': $rootScope.userConnected.user.login
         }
