@@ -5,7 +5,7 @@
     <div ng-repeat="application in ArrayApp">
         Mon Application : {{application.title}}<br>
         slogan : {{application.slogan}}<br>
-        <button>Modifier</button>
+        <button go-click="/application">Modifier</button>
         <button>Ajouter un Tag</button>
         <button ng-click="deleteApp($index)">Supprimer</button>
         <h4 ng-show="application.tags.length > 0">Mes Tags</h4>

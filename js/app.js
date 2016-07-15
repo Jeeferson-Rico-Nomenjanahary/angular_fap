@@ -28,6 +28,7 @@ var app = angular
     .when('/', { templateUrl: 'home.view.html', controller: 'home' })
     .when('/applications', { templateUrl: 'application.view.html', controller: 'applicationCtrl' })
     .when('/applications/create', { templateUrl: 'application.create.view.html', controller: 'applicationCtrl' })
+        .when('/applications/update/:id', { templateUrl: 'application.update.view.html', controller: 'applicationCtrl' })
     .otherwise({ redirectTo: '/' });
 
     //Enable cross domain calls
