@@ -511,3 +511,13 @@ thead tr th:first-child{
 .tableReporting.annuel tr.head td:first-child {
     background-color: #EEECE1 !important;
 }
+#app-list li.editing .edit {
+    display: block;
+}
+#app-list li .edit {
+    display: none;
+}
+
+#app-list li.editing .view {
+    display: none;
+}

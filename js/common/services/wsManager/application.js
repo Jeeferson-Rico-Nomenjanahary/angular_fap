@@ -13,6 +13,8 @@ angular.module('common.services')
         factory.createApplication= function (application) {
             return $http.post(conf.entryPoint.trim() + 'applications',application, $rootScope.header)
         }
-
+        factory.updateApplication= function (idToUpdate,application) {
+            return $http.put(conf.entryPoint.trim() + 'applications/'+idToUpdate,application, $rootScope.header)
+        }
         return factory;
     });

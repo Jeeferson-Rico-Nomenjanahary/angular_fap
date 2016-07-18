@@ -3,6 +3,8 @@
  */
 angular.module('common.services')
     .controller('applicationCtrl', function($scope,$rootScope, conf, $window, applicationFactory, ngProgressFactory) {
+
+        $scope.ArrayApp = [];
         var strUserConnected = sessionStorage.getItem("UserConnected");
         if (strUserConnected == null) {
             $window.location.href = conf.site+'login.html';
@@ -12,7 +14,6 @@ angular.module('common.services')
         $scope.applications = applicationFactory.getApplications().then(function (d) {
             $scope.applications = d.data.records;
             $scope.result = d.data.result.message;
-            $scope.ArrayApp = [];
             angular.forEach($scope.applications, function(value, key) {
                 $scope.ArrayApp.push(value);
             });
@@ -26,6 +27,7 @@ angular.module('common.services')
                 web : $scope.web,
                 slogan : $scope.slogan
             }
+            $scope.ArrayApp.push(application);
             applicationFactory.createApplication(application).then(
                 function(data){
                     $scope.alerts.push({ msg: 'Vos données ont été enregister', type: 'success' });
@@ -43,6 +45,23 @@ angular.module('common.services')
                     $scope.ArrayApp.splice(idx, 1);
                     $scope.alerts.push({ msg: 'supprimer avec succes', type: 'success' });
                 },function(erroor){
+                    $scope.alerts.push({ msg: 'Une erreur est survenue', type: 'danger' });
+                }
+            )
+        }
+        $scope.update = function(idx){
+            var app_to_update = $scope.ArrayApp[idx];
+            console.log(app_to_update);
+            application = {
+                title : app_to_update.title,
+                web : 'test',
+                slogan : app_to_update.slogan
+            }
+            applicationFactory.updateApplication(app_to_update.id,application).then(
+                function(data){
+                    $scope.alerts.push({ msg: 'Vos données ont été enregister', type: 'success' });
+                },
+                function(error){
                     $scope.alerts.push({ msg: 'Une erreur est survenue', type: 'danger' });
                 }
             )

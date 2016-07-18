@@ -2,17 +2,38 @@
     <h1>Application</h1>
     <h2>{{userConnected.records.name}}</h2>
 
-    <div ng-repeat="application in ArrayApp">
-        Mon Application : {{application.title}}<br>
-        slogan : {{application.slogan}}<br>
-        <button go-click="/application">Modifier</button>
-        <button>Ajouter un Tag</button>
-        <button ng-click="deleteApp($index)">Supprimer</button>
-        <h4 ng-show="application.tags.length > 0">Mes Tags</h4>
-        <div ng-repeat="tag in application.tags">
-            - {{tag.name}}
-        </div>
-        <div>-----------------</div>
-    </div>
+
+    <ul id ="app-list">
+        <li ng-repeat="application in ArrayApp" ng-class="{editing : application.editing}">
+            <div class="view">
+                Mon Application :<label>{{application.title}}</label>
+                slogan :<label>{{application.slogan}}</label>
+                <button ng-click="(application.editing=true)">Modifier</button>
+                <button>Ajouter un Tag</button>
+                <button ng-click="deleteApp($index)">Supprimer</button>
+            </div>
+            <form action="#">
+                <div class="form-group edit">
+                    <label for="my app">Mon Application :</label>
+                    <input  ng-model="application.title" ></input>
+                </div>
+                <div class="form-group edit">
+                    <label for="slogan">slogan :</label>
+                    <input ng-model="application.slogan" ></input>
+                </div>
+
+                <div class="form-group edit">
+                    <button class="edit" ng-click="update($index)">Valider</button>
+                </div>
+            </form>
+                <h4 ng-show="application.tags.length > 0">Mes Tags</h4>
+                <div ng-repeat="tag in application.tags">
+                    - {{tag.name}}
+                </div>
+                <div>-----------------</div>
+
+        </li>
+    </ul>
     <a href="#/applications/create">Ajouter une application</a>
 </div>
+
