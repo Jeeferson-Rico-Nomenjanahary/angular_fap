@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="form-group edit">
-                    <button class="edit" ng-click="update($index)">Valider</button>
+                    <button class="edit" ng-click="update($index);(application.editing=false)">Valider</button>
                 </div>
             </form>
             <div ng-controller="tagCtrl">
@@ -37,7 +37,7 @@
                         Tag NAme : <input ng-model="tag_name"></input>
                     </div>
                     <div class="form-group edit_tag">
-                        <button ng-click="createTagForApp($index)">Valider</button>
+                        <button ng-click="createTagForApp($index); (application.editingtag=false)">Valider</button>
                     </div>
                 </form>
             </div>
