@@ -5,6 +5,7 @@ angular.module('common.services')
     .controller('applicationCtrl', function($scope,$rootScope, conf, $window, applicationFactory, ngProgressFactory) {
 
         $scope.ArrayApp = [];
+        $scope.ArrayTag = [];
         var strUserConnected = sessionStorage.getItem("UserConnected");
         if (strUserConnected == null) {
             $window.location.href = conf.site+'login.html';
@@ -16,6 +17,8 @@ angular.module('common.services')
             $scope.result = d.data.result.message;
             angular.forEach($scope.applications, function(value, key) {
                 $scope.ArrayApp.push(value);
+                $scope.ArrayTag.push(value.tags);
+                console.log($scope.ArrayTag);
             });
         }, function (error) {
             $scope.alerts.push({ msg: 'Une erreur est survenue', type: 'danger' });

@@ -43,10 +43,11 @@
             </div>
 
                 <h4 ng-show="application.tags.length > 0">Mes Tags</h4>
-                <div ng-repeat="tag in application.tags">
+                <div ng-repeat="tag in ArrayTag[$index]">
                     - {{tag.name}}
                 </div>
                 <div>-----------------</div>
+
 
         </li>
     </ul>
