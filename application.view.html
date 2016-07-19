@@ -4,15 +4,16 @@
 
 
     <ul id ="app-list">
-        <li ng-repeat="application in ArrayApp" ng-class="{editing : application.editing}">
+        <li ng-repeat="application in ArrayApp" ng-class="{editing : application.editing ,editingtag : application.editingtag}">
             <div class="view">
                 Mon Application :<label>{{application.title}}</label>
                 slogan :<label>{{application.slogan}}</label>
+                Site web :<label>{{application.web}}</label>
                 <button ng-click="(application.editing=true)">Modifier</button>
-                <button>Ajouter un Tag</button>
+                <button ng-click="(application.editingtag=true)">Ajouter un Tag</button>
                 <button ng-click="deleteApp($index)">Supprimer</button>
             </div>
-            <form action="#">
+            <form action="#/applications">
                 <div class="form-group edit">
                     <label for="my app">Mon Application :</label>
                     <input  ng-model="application.title" ></input>
@@ -21,11 +22,26 @@
                     <label for="slogan">slogan :</label>
                     <input ng-model="application.slogan" ></input>
                 </div>
+                <div class="form-group edit">
+                    <label for="site">Site web :</label>
+                    <input ng-model="application.web" ></input>
+                </div>
 
                 <div class="form-group edit">
                     <button class="edit" ng-click="update($index)">Valider</button>
                 </div>
             </form>
+            <div ng-controller="tagCtrl">
+                <form action="#/applications">
+                    <div class="form-group edit_tag">
+                        Tag NAme : <input ng-model="tag_name"></input>
+                    </div>
+                    <div class="form-group edit_tag">
+                        <button ng-click="createTagForApp($index)">Valider</button>
+                    </div>
+                </form>
+            </div>
+
                 <h4 ng-show="application.tags.length > 0">Mes Tags</h4>
                 <div ng-repeat="tag in application.tags">
                     - {{tag.name}}

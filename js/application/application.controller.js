@@ -54,7 +54,7 @@ angular.module('common.services')
             console.log(app_to_update);
             application = {
                 title : app_to_update.title,
-                web : 'test',
+                web : app_to_update.web,
                 slogan : app_to_update.slogan
             }
             applicationFactory.updateApplication(app_to_update.id,application).then(
@@ -66,4 +66,5 @@ angular.module('common.services')
                 }
             )
         }
+
     });

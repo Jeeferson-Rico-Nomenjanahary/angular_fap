@@ -514,10 +514,21 @@ thead tr th:first-child{
 #app-list li.editing .edit {
     display: block;
 }
+#app-list li.editingtag .edit_tag {
+    display: block;
+}
 #app-list li .edit {
     display: none;
 }
 
 #app-list li.editing .view {
     display: none;
+}
+
+#app-list li .edit_tag{
+    display: none;
+}
+
+#app-list li.editing .edit_tag{
+    display: block;
 }
