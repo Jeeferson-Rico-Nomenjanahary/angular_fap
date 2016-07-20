@@ -35,6 +35,7 @@ angular.module('common.services')
                     $scope.alerts.push({ msg: 'Une erreur est survenue', type: 'danger' });
                 }
             )
+            $scope.tag_name ='';
         }
         $scope.deleteTag = function(idx){
             var tag_to_delete = $scope.ArrayTag[idx];
