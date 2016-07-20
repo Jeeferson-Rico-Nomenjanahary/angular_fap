@@ -535,3 +535,11 @@ thead tr th:first-child{
 .souligne {
     text-decoration: underline;
 }
+
+.tagAffiche {
+    margin-top: 30px;
+}
+
+.addMarginTop {
+    margin-top: 15px;
+}

@@ -12,7 +12,7 @@
             <ul id ="app-list">
                 <li ng-repeat="application in ArrayApp" ng-class="{editing : application.editing ,editingtag : application.editingtag}">
                     <div class="col-md-6">
-                        <div class="view">
+                        <div class="view addMarginTop">
                             <div>
                                 <b class="souligne"> Nom de Application :</b> {{application.title}}
                             </div>
@@ -46,14 +46,14 @@
                                 <button class="edit btn btn-success" ng-click="update($index);(application.editing=false)">Valider</button>
                             </div>
                         </form>
-                        <div ng-controller="tagCtrl">
+                        <div ng-controller="tagCtrl" class="tagAffiche">
                             <form action="#/applications">
                                 <div class="md-form edit_tag">
                                     <input type="text" id="tag" class="form-control" ng-model="tag_name">
-                                    <label class="active" for="site">Tag name</label>
+                                    <label class="active" for="site">Ajouter un tag</label>
                                 </div>
 
-                                <div class="form-group edit_tag">
+                                <div class="md-form edit_tag">
                                     <button class="btn btn-success" ng-click="createTagForApp($index); (application.editingtag=false)">Valider</button>
                                 </div>
                             </form>
