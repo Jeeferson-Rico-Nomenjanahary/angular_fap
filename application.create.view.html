@@ -1,26 +1,29 @@
-<!--Panel-->
-<div class="card text-xs-center">
-    <h3 class="card-header primary-color white-text">Créer une application</h3>
-    <div class="clearfix"></div>
-    <div class="card-block">
-        <form class="form-inline" name="applicationCreateForm">
+<div class="container">
+    <!--Panel-->
+    <div class="text-xs-center">
+        <h3 class="card-header primary-color white-text">Créer une application</h3>
 
-            <div class="md-form">
-                <i class="fa fa-tag"></i>&nbsp; <input type="text" id="title" class="form-control" ng-model="title" placeholder="Saisissez le titre" size="35">
-            </div>
+        <div class="card-block" style="margin-top: 75px">
+            <div>Veuillez remplir les informations suivantes :</div><br>
+            <form class="form-inline" name="applicationCreateForm">
 
-            <div class="md-form">
-                <i class="fa fa-flag"></i>&nbsp; <input type="text" id="slogan" class="form-control" ng-model="slogan" placeholder="Saisissez votre Slogan" size="35">
-            </div>
+                <div class="md-form">
+                    <i class="fa fa-tag"></i>&nbsp; <input type="text" id="title" class="form-control" ng-model="title" placeholder="Saisissez le titre" size="35">
+                </div>
 
-            <div class="md-form">
-                <i class="fa fa-wechat"></i>&nbsp; <input type="text" id="web" class="form-control" ng-model="web" placeholder="Saisissez votre Site web" size="35">
-            </div>
+                <div class="md-form">
+                    <i class="fa fa-flag"></i>&nbsp; <input type="text" id="slogan" class="form-control" ng-model="slogan" placeholder="Saisissez votre Slogan" size="35">
+                </div>
 
-            <div class="form-group pull-center">
-                <button class="btn btn-primary" ng-click="create()" ng-disabled="applicationCreateForm.$invalid">Créer</button>
-            </div>
-        </form>
+                <div class="md-form">
+                    <i class="fa fa-wechat"></i>&nbsp; <input type="text" id="web" class="form-control" ng-model="web" placeholder="Saisissez votre Site web" size="35">
+                </div>
+
+                <div class="form-group pull-center">
+                    <button class="btn btn-primary" ng-click="create()" ng-disabled="applicationCreateForm.$invalid">Créer</button>
+                </div>
+            </form>
+        </div>
     </div>
+    <!--/.Panel-->
 </div>
-<!--/.Panel-->
