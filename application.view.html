@@ -1,56 +1,83 @@
-<div ng-controller="applicationCtrl">
-    <h1>Application</h1>
-    <h2>{{userConnected.records.name}}</h2>
+<div style="margin-top: 15px"></div>
+<div ng-controller="applicationCtrl" class="container">
+    <!--Jumbotron-->
+    <div class="jumbotron">
+        <h1 class="h1-responsive">Bonjour, <b>{{userConnected.records.name}}</b></h1>
+        <p class="lead">
+            Voici toutes vos applications
+            <a href="#/applications/create" class="btn btn-secondary btn-lg pull-right" role="button">Ajouter une application</a>
+        </p>
+        <hr class="m-y-2">
+        <p class="lead">
+            <ul id ="app-list">
+                <li ng-repeat="application in ArrayApp" ng-class="{editing : application.editing ,editingtag : application.editingtag}">
+                    <div class="col-md-6">
+                        <div class="view">
+                            <div>
+                                <b class="souligne"> Nom de Application :</b> {{application.title}}
+                            </div>
+                            <div>
+                                <b class="souligne"> Slogan :</b> {{application.slogan}}
+                            </div>
+                            <div>
+                                <b class="souligne"> Site web :</b> {{application.web}}
+                            </div>
+                            <button id="modifyApp" class="btn btn-default" ng-click="(application.editing=true)">Modifier</button>
+                            <button class="btn btn-info" ng-click="(application.editingtag=true)">Ajouter un Tag</button>
+                            <button class="btn btn-danger" ng-click="deleteApp($index)">Supprimer</button>
+                        </div>
+                        <form action="#/applications">
+                            <div class="md-form edit">
+                                <input type="text" id="title" class="form-control" ng-model="application.title">
+                                <label class="active" for="my app">Nom de l'application</label>
+                            </div>
 
+                            <div class="md-form edit">
+                                <input type="text" id="slogan" class="form-control" ng-model="application.slogan">
+                                <label class="active" for="slogan">Slogan</label>
+                            </div>
 
-    <ul id ="app-list">
-        <li ng-repeat="application in ArrayApp" ng-class="{editing : application.editing ,editingtag : application.editingtag}">
-            <div class="view">
-                Mon Application :<label>{{application.title}}</label>
-                slogan :<label>{{application.slogan}}</label>
-                Site web :<label>{{application.web}}</label>
-                <button ng-click="(application.editing=true)">Modifier</button>
-                <button ng-click="(application.editingtag=true)">Ajouter un Tag</button>
-                <button ng-click="deleteApp($index)">Supprimer</button>
-            </div>
-            <form action="#/applications">
-                <div class="form-group edit">
-                    <label for="my app">Mon Application :</label>
-                    <input  ng-model="application.title" ></input>
-                </div>
-                <div class="form-group edit">
-                    <label for="slogan">slogan :</label>
-                    <input ng-model="application.slogan" ></input>
-                </div>
-                <div class="form-group edit">
-                    <label for="site">Site web :</label>
-                    <input ng-model="application.web" ></input>
-                </div>
+                            <div class="md-form edit">
+                                <input type="text" id="site" class="form-control" ng-model="application.web">
+                                <label class="active" for="site">Site web</label>
+                            </div>
 
-                <div class="form-group edit">
-                    <button class="edit" ng-click="update($index);(application.editing=false)">Valider</button>
-                </div>
-            </form>
-            <div ng-controller="tagCtrl">
-                <form action="#/applications">
-                    <div class="form-group edit_tag">
-                        Tag NAme : <input ng-model="tag_name"></input>
+                            <div class="form-group edit">
+                                <button class="edit btn btn-success" ng-click="update($index);(application.editing=false)">Valider</button>
+                            </div>
+                        </form>
+                        <div ng-controller="tagCtrl">
+                            <form action="#/applications">
+                                <div class="md-form edit_tag">
+                                    <input type="text" id="tag" class="form-control" ng-model="tag_name">
+                                    <label class="active" for="site">Tag name</label>
+                                </div>
+
+                                <div class="form-group edit_tag">
+                                    <button class="btn btn-success" ng-click="createTagForApp($index); (application.editingtag=false)">Valider</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="form-group edit_tag">
-                        <button ng-click="createTagForApp($index); (application.editingtag=false)">Valider</button>
+
+                    <div class="col-md-6">
+                        <h4 ng-show="application.tags.length > 0"> <b class="souligne"> Tags : </b></h4>
+                        <div ng-repeat="tag in ArrayTag[$index]">
+                            <i class="fa fa-check">&nbsp; {{tag.name}}</i>
+                        </div>
                     </div>
-                </form>
-            </div>
+                    <div class="col-md-12">
+                        <hr class="m-y-2">
+                    </div>
+                </li>
+            </ul>
+        </p>
+        <p class="lead">
+            <a href="#/applications/create" class="btn btn-primary btn-sm" role="button">Prev</a>
+            <a href="#/applications/create" class="btn btn-primary btn-sm" role="button">Next</a>
+        </p>
 
-                <h4 ng-show="application.tags.length > 0">Mes Tags</h4>
-                <div ng-repeat="tag in ArrayTag[$index]">
-                    - {{tag.name}}
-                </div>
-                <div>-----------------</div>
-
-
-        </li>
-    </ul>
-    <a href="#/applications/create">Ajouter une application</a>
+    </div>
+    <!--/.Jumbotron-->
 </div>
-
+<div style="margin-bottom: 50px"></div>

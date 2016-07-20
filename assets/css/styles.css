@@ -124,7 +124,7 @@ ul {
     height: 55px;
 }
 .page-container {
-    margin-top: 76px;
+    /*margin-top: 76px;*/
 }
 
 .page-sidebar-wrapper {
@@ -273,18 +273,18 @@ ul {
 }
 
 .page-content-wrapper {
-    float: left;
-    width: 100%;
+    /*float: left;
+    width: 100%;*/
 }
 
 .page-content-wrapper .page-content {
-    position: relative;
+    /*position: relative;
     margin-left: 280px;
     min-height: 600px;
     padding: 18px 20px 1px;
     background-color: #ecf0f1;
     border-bottom: 1px solid #e3e3e3;
-    border-left: 1px solid #e3e3e3;
+    border-left: 1px solid #e3e3e3;*/
 }
 
 @media (max-width: 768px) {
@@ -522,7 +522,6 @@ thead tr th:first-child{
     display: none;
 }
 
-
 #app-list li.editingtag .edit_tag {
     display: block;
 }
@@ -531,4 +530,8 @@ thead tr th:first-child{
 }
 #app-list li.editing .edit_tag{
     display: block;
+}
+
+.souligne {
+    text-decoration: underline;
 }

@@ -4,53 +4,60 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:800,600,700,400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/lib/css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" href="assets/lib/css/bootstrap.min.css" />-->
     <link rel="stylesheet" href="assets/lib/css/font-awesome.min.css" />
     <link rel="stylesheet" href="assets/lib/css/ui-select.min.css" />
     <link rel="stylesheet" href="assets/lib/css/selectize.default.css" />
     <link rel="stylesheet" href="assets/lib/css/ngProgress.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="assets/css/mdb.min.css" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 </head>
 <body ng-app="myApp" ng-controller="MainCtrl">
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-            <a ng-click="toggleSideBar()" class="menu">
-                <i class="glyphicon glyphicon-menu-hamburger"></i>
-            </a>
-        </div>
-        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 logo">
-            <a href="#/">
-                <b>APP</b>WS TRAINING
 
-            </a>
+<nav class="navbar navbar-dark bg-primary">
+
+    <!-- Collapse button-->
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx2">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="container">
+
+        <!--Collapse content-->
+        <div class="collapse navbar-toggleable-xs" id="collapseEx2">
+            <!--Navbar Brand-->
+            <a class="navbar-brand" href="#"><b>APP</b>WS Training</a>
+            <!--Links-->
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#/"><i class="fa fa-home"></i>&nbsp;<span class="sr-only">(current)</span>Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#/"><i class="fa fa-user"></i>&nbsp;Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#/applications"><i class="fa fa-list"></i>&nbsp;Mes application</a>
+                </li>
+            </ul>
+            <a href="" ng-click="disconnect()" class="disconect btn btn-info pull-right"><i class="fa fa-sign-out"></i>&nbsp;<span>Deconnexion</span></a>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 disco">
-            <a href="" ng-click="disconnect()" class="disconect"><i class="fa fa-sign-out"></i>&nbsp;<span>Deconnexion</span></a>
-        </div>
+        <!--/.Collapse content-->
+
     </div>
-</div>
+
+</nav>
+<!--/.Navbar-->
+
 <div class="page-container">
-    <div class="page-sidebar-wrapper">
-        <ul class="sections" auto-active>
-            <li ng-repeat="section in menu" class="section auto-active">
-                <a href="{{section.url}}" ng-if="section.children.length==undefined">
-                    <i class="{{section.ico}}"></i>
-                    <span>{{section.name}}</span>
-                </a>
-                <a ng-if="section.children.length>0" ng-click="setCollapse(menu, section)">
-                    <i class="{{section.ico}}"></i>
-                    <span>{{section.name}}</span>
-                    <i class="pull-right fa" ng-class="{'fa-angle-down': section.closed, 'fa-angle-up': !section.closed}"></i>
-                </a>
-                <ul ng-if="section.children.length>0" uib-collapse="section.closed" class="pages">
-                    <li ng-repeat="page in section.children" class="page">
-                        <a href="{{page.url}}" ng-if="page.children.length==undefined">{{page.name}}</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
     <div class="page-content-wrapper">
         <div class="page-content">
             <div ng-view class="view"></div>
@@ -58,21 +65,20 @@
 
     </div>
 </div>
-<div class="page-footer">
-    <div class="wrap-foot">
-        <div class="page-footer-inner col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <span>2016 -Tranining Angular App</span>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 foot-logo">
-            <img title="" src="" alt="" />
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 last-foot">
-        </div>
-        <div class="scroll-to-top">
-            <i class="icon-arrow-up"></i>
+
+
+<div class="clearfix"></div>
+
+<div style="position: fixed;width: 100%;bottom: -35px;">
+    <!--Card Info-->
+    <div class="card card-primary text-xs-center z-depth-2">
+        <div class="card-block">
+            <p class="white-text">Copyright &copy; 2016. FAP Training</p>
         </div>
     </div>
+    <!--/.Card Info-->
 </div>
+
 <script src="assets/lib/js/angular.min.js"></script>
 <script src="assets/lib/js/angular-route.min.js"></script>
 <!--script src="~/assets/lib/js/angular-animate.min.js"></script-->
@@ -80,6 +86,8 @@
 <script src="assets/lib/js/ng-google-chart.min.js"></script>
 <script src="assets/lib/js/ui-select.min.js"></script>
 <script src="assets/lib/js/ngProgress.min.js"></script>
+<script src="assets/lib/js/mdb.min.js"></script>
+<script src="assets/lib/js/tether.min.js"></script>
 <script src="Config/Config.js"></script>
 
 

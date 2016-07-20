@@ -6,35 +6,51 @@
     <meta name="viewport" content="width=device-width" />
     <title>WS :: APP TRAINING</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:800,600,700,400,300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/lib/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!--<link rel="stylesheet" href="assets/lib/css/bootstrap.min.css" />-->
+    <!--<link rel="stylesheet" href="assets/css/styles.css" />-->
     <link rel="stylesheet" href="assets/lib/css/ngProgress.css" />
+    <link rel="stylesheet" href="assets/lib/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/lib/css/ui-select.min.css" />
+    <link rel="stylesheet" href="assets/lib/css/selectize.default.css" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="assets/css/mdb.min.css" rel="stylesheet">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body ng-app="MyApp" ng-controller="LoginController" class="login">
-    <div class="header">
-        <span><b>WS</b> app TRAINING</span>
-    </div>
-    <div class="background-cover">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <form class="form col-md-12 center-block well" name="loginForm">
-                <div class="form-group">
-                    <label for="userName">identifiant</label>
-                    <input class="form-control input-lg" ng-model="login" placeholder="Saisissez votre identifiant" type="text" name="userName" required>
-                </div>
-                <div class="form-group">
-                <label for="psw">mot de passe</label>
-                    <input class="form-control input-lg" ng-model="password" placeholder="Saisissez votre mot de passe" type="password" name="psw" required>
-                </div>
-                <div class="form-group pull-center">
-                    <button class="btn btn-primary" ng-click="connexion()" ng-disabled="loginForm.$invalid">SE CONNECTER</button>
-                </div>
-            </form>
 
+    <!--Panel-->
+    <div class="text-xs-center">
+        <div class="card-header primary-color white-text">
+            <b>WS</b> FAP TRAINING
+        </div>
+        <div class="card-block" style="margin-top: 100px;">
+            <h4 class="card-title">Login</h4>
+            <p class="card-text">
+                <form class="form-inline" name="loginForm">
+                    <div class="md-form">
+                        <i class="fa fa-user"></i>&nbsp; <input id="login" class="form-control" ng-model="login" placeholder="Saisissez votre identifiant" type="text" name="userName" size="35" required>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fa fa-lock"></i>&nbsp; <input id="psw" class="form-control" ng-model="password" placeholder="Saisissez votre mot de passe" type="password" name="psw" size="35" required>
+                    </div>
+                    <button class="btn btn-primary" ng-click="connexion()" ng-disabled="loginForm.$invalid">Se connecter</button>
+                </form>
+            </p>
+            <div><a href="" style="color: #0073bb">Mot de passe oublié ?</a></div>
+        </div>
+        <div class="card-footer text-muted primary-color white-text" style="position: fixed; width: 100%; bottom: 0px;">
+            Copyright &copy; 2016. Designed by Hery Rakotonarivo. All rights reserved.
         </div>
     </div>
-    <div class="footer">
-        
-    </div>
+    <!--/.Panel-->
+
     <script src="assets/lib/js/angular.min.js"></script>
     <script src="assets/lib/js/ui-bootstrap-tpls-1.1.2.min.js"></script>
     <script src="assets/lib/js/ngProgress.min.js"></script>

@@ -2,12 +2,12 @@ angular.module('common.services')
 .factory('menu', function () {
   return [
     {
-      name: 'accueil',
+      name: 'Accueil',
       url: '#/',
       ico: 'fa fa-home'
     },
     {
-      name: 'USER',
+      name: 'User',
       ico: 'fa fa-user',
       closed: true,
       children : [
