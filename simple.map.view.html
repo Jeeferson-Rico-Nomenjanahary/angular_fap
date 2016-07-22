@@ -1,9 +1,16 @@
 <div class="container">
-    <div ng-controller="SimpleMapCtrl">
-        <div id="map"></div>
-        <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
-            <a id="country_container" href="#" ng-click="openInfoWindow($event, marker)">
-                <label id="names" >{{marker.title}}</label></a>
+    <div class="card">
+        <h3 class="card-header primary-color white-text">Voici tous les points d'affichages</h3>
+        <div class="card-block">
+            <p class="card-text">
+            <div ng-controller="SimpleMapCtrl">
+                <div id="map"></div>
+                <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
+                    <a class="btn btn-default" id="align-group-center" href="#" ng-click="openInfoWindow($event, marker)">
+                        <label id="names" >{{marker.title}}</label></a>
+                </div>
+            </div>
+            </p>
         </div>
     </div>
 </div>
