@@ -546,8 +546,8 @@ thead tr th:first-child{
 /* simple Map style */
 
 #map{
-    height: 500px;
-    width: 1024px;
+    height: 400px;
+    width: 1065px;
     box-shadow: 3px 3px 10px gray;
 }
 #repeat{
@@ -575,6 +575,16 @@ thead tr th:first-child{
 }
 #names {
     cursor: pointer;
+}
+
+.add-top-bottom {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.align-group-center {
+    display: inline-block;
+    margin-right: 15px;
 }
 
 /*end simple Map style */
