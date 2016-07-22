@@ -190,6 +190,7 @@ angular.module('common.services')
             marker  = MarkerCreatorService.createMarker($scope.map,cities[i]);
             $scope.markers.push(marker);
         }
+        MarkerCreatorService.createCluster($scope.map,$scope.markers)
 
 
 

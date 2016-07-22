@@ -62,6 +62,28 @@ angular.module('common.services')
 
         }
 
+        factory.createCluster = function(map,markers){
+            // Ci-dessous, le clustering éventuel
+
+            var cluster, // Le MarkerClusterer
+                clusterOptions = {
+                    gridSize: 65, // 60 par défaut
+                    maxZoom: 12, // Désactive le clustering au delà de ce niveau de zoom
+                    /*styles: [{
+                     url: '/path/to/cluster/icon',
+                     height: 45,
+                     width: 45,
+                     anchor: [0, 0],
+                     textColor: '#ffffff',
+                     textSize: 16
+                     }]*/
+                };
+
+            cluster = new MarkerClusterer(map, markers, clusterOptions);
+            return cluster ;
+
+        }
+
         return factory;
 
     });
