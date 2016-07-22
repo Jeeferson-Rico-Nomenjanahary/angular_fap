@@ -48,6 +48,10 @@ var cities = [
             {
                 alt: "alt",
                 url: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSAphOmLCQrRfTvcm2YYt3Edqd_YPCLYLDzDugMZ64EEWX0Lznn3g"
+            },
+            {
+                alt: "alt",
+                url: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSAphOmLCQrRfTvcm2YYt3Edqd_YPCLYLDzDugMZ64EEWX0Lznn3g"
             }
         ]
     },

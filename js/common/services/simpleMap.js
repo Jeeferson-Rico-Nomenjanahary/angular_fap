@@ -23,9 +23,21 @@ angular.module('common.services')
             var marker = new google.maps.Marker({
                 map: map,
                 position: new google.maps.LatLng(info.lat, info.long),
-                title: info.city
+                title: info.city,
+                allimages: info.images
             });
-            marker.content = '<div class="infoWindowContent">' + info.desc + '</div>';
+
+            htmlImages = '<div>';
+            angular.forEach(marker.allimages, function(value, key) {
+                htmlImages += '<img src="'+ value.url +'" alt="' + value.alt + '" width="100" height="100" style="display: inline-block;margin-left: 20px" />';
+            });
+            htmlImages += '</div>';
+
+            marker.content =
+                '' +
+                '<div class="infoWindowContent">' + info.desc + '</div>' +
+                htmlImages
+            ;
 
             google.maps.event.addListener(marker, 'click', function(){
                 infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
