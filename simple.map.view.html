@@ -6,7 +6,7 @@
             <div ng-controller="SimpleMapCtrl">
                 <div id="map"></div>
                 <div id="repeat" ng-repeat="marker in markers | orderBy : 'title'">
-                    <a class="btn btn-default" id="align-group-center" href="#" ng-click="openInfoWindow($event, marker)">
+                    <a class="btn btn-default" id="" href="#" ng-click="openInfoWindow($event, marker)">
                         <label id="names" >{{marker.title}}</label></a>
                 </div>
             </div>
