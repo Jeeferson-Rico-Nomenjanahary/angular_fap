@@ -30,6 +30,7 @@ var app = angular
     .when('/applications/create', { templateUrl: 'application.create.view.html', controller: 'applicationCtrl' })
     .when('/applications/update/:id', { templateUrl: 'application.update.view.html', controller: 'applicationCtrl' })
     .when('/todo-map', { templateUrl: 'test.view.html',controller: 'MapCtrl' })
+    .when('/map', { templateUrl: 'simple.map.view.html',controller: 'SimpleMapCtrl' })
     .otherwise({ redirectTo: '/' });
 
     //Enable cross domain calls
