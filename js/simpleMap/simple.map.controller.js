@@ -183,7 +183,9 @@ angular.module('common.services')
         }
 
 
-
+        /*
+        * affiche les points sur la map
+         */
         for (i = 0; i < cities.length; i++){
             marker  = MarkerCreatorService.createMarker($scope.map,cities[i]);
             $scope.markers.push(marker);

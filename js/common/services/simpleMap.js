@@ -22,10 +22,22 @@ angular.module('common.services')
 
             var marker = new google.maps.Marker({
                 map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
                 position: new google.maps.LatLng(info.lat, info.long),
                 title: info.city,
                 allimages: info.images
             });
+
+            marker.addListener('dblclick', toggleBounce = function(){
+
+                if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            });
+
 
             htmlImages = '<div>';
             angular.forEach(marker.allimages, function(value, key) {
@@ -43,6 +55,8 @@ angular.module('common.services')
                 infoWindow.setContent('<h2>' + marker.title + '</h2>' + marker.content);
                 infoWindow.open(map, marker);
             });
+
+
 
             return marker;
 
