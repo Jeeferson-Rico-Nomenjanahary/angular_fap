@@ -67,16 +67,9 @@ angular.module('common.services')
 
             var cluster, // Le MarkerClusterer
                 clusterOptions = {
-                    gridSize: 65, // 60 par d√©faut
-                    maxZoom: 12, // D√©sactive le clustering au del√† de ce niveau de zoom
-                    /*styles: [{
-                     url: '/path/to/cluster/icon',
-                     height: 45,
-                     width: 45,
-                     anchor: [0, 0],
-                     textColor: '#ffffff',
-                     textSize: 16
-                     }]*/
+                    gridSize: 60, // 60 par dÈfaut - 65
+                    maxZoom: 15, // DÈsactive le clustering au del‡ de ce niveau de zoom
+                    imagePath: 'm'
                 };
 
             cluster = new MarkerClusterer(map, markers, clusterOptions);
