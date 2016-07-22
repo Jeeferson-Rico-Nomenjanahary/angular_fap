@@ -21,7 +21,7 @@ var app = angular
 
 
 })
-.config(function ($routeProvider, $httpProvider) {
+.config(function ($routeProvider) {
    var viewsFolder = "../views/";
 
     $routeProvider
@@ -32,10 +32,6 @@ var app = angular
     .when('/todo-map', { templateUrl: 'test.view.html',controller: 'MapCtrl' })
     .when('/map', { templateUrl: 'simple.map.view.html',controller: 'SimpleMapCtrl' })
     .otherwise({ redirectTo: '/' });
-
-    //Enable cross domain calls
-    //$httpProvider.defaults.useXDomain = true;
-    //$http.useXDomain = true;
 })
 .run(function ($rootScope, menu, $window,conf) {
     $rootScope.$on("$routeChangeSuccess", function (event, data) {
