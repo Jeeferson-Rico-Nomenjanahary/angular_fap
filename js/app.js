@@ -21,7 +21,7 @@ var app = angular
 
 
 })
-.config(function ($routeProvider, $httpProvider) {
+.config(function ($routeProvider) {
    var viewsFolder = "../views/";
 
     $routeProvider
@@ -30,10 +30,6 @@ var app = angular
     .when('/applications/create', { templateUrl: 'application.create.view.html', controller: 'applicationCtrl' })
         .when('/applications/update/:id', { templateUrl: 'application.update.view.html', controller: 'applicationCtrl' })
     .otherwise({ redirectTo: '/' });
-
-    //Enable cross domain calls
-    //$httpProvider.defaults.useXDomain = true;
-    //$http.useXDomain = true;
 })
 .run(function ($rootScope, menu, $window,conf) {
     $rootScope.$on("$routeChangeSuccess", function (event, data) {
