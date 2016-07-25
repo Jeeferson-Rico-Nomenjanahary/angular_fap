@@ -10,7 +10,7 @@ angular.module('common.services')
         factory.init = function(){
             var mapOptions = {
                 zoom: 4,
-                center: new google.maps.LatLng(25,80),
+                center: new google.maps.LatLng(48,2),
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             }
 
@@ -67,8 +67,8 @@ angular.module('common.services')
 
             var cluster, // Le MarkerClusterer
                 clusterOptions = {
-                    gridSize: 60, // 60 par défaut - 65
-                    maxZoom: 15, // Désactive le clustering au delà de ce niveau de zoom
+                    gridSize: 60, // 60 par dï¿½faut - 65
+                    maxZoom: 15, // Dï¿½sactive le clustering au delï¿½ de ce niveau de zoom
                     imagePath: 'm'
                 };
 
