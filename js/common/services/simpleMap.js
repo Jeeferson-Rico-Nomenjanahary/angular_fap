@@ -7,7 +7,7 @@ angular.module('common.services')
         var markerId = 0;
         var factory = {};
 
-        factory.init = function(){
+        factory.init = function() {
             var mapOptions = {
                 zoom: 4,
                 center: new google.maps.LatLng(48,2),
@@ -63,7 +63,7 @@ angular.module('common.services')
         }
 
         factory.createCluster = function(map,markers){
-            // Ci-dessous, le clustering Ã©ventuel
+            // Ci-dessous, le clustering éventuel
 
             var cluster, // Le MarkerClusterer
                 clusterOptions = {
