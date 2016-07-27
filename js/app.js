@@ -2,6 +2,7 @@ var app = angular
 .module('myApp',
   [
       'ngRoute',
+      'ngIdle',
       'ui.bootstrap',
       'googlechart',
       'ui.select',
@@ -13,17 +14,65 @@ var app = angular
       'GlobalConfig'
   ]
 )
-.controller('MainCtrl', function ($scope, $window, conf, utilisateur) {
+.controller('MainCtrl', function ($scope, $window, conf, utilisateur,Idle,$modal) {
     $scope.disconnect = function () {
         sessionStorage.removeItem("UserConnected");
         $window.location.href = conf.site+'login.html';
     };
+    $scope.started = false;
+      function closeModals() {
+        if ($scope.warning) {
+          $scope.warning.close();
+          $scope.warning = null;
+        }
+
+        if ($scope.timedout) {
+          $scope.timedout.close();
+          $scope.timedout = null;
+        }
+      }
+
+      $scope.$on('IdleStart', function() {
+        closeModals();
+
+        $scope.warning = $modal.open({
+          templateUrl: 'warning-dialog.html',
+          windowClass: 'modal-danger'
+        });
+      });
+
+      $scope.$on('IdleEnd', function() {
+        closeModals();
+      });
+
+      $scope.$on('IdleTimeout', function() {
+        closeModals();
+         sessionStorage.removeItem("UserConnected");
+        $window.location.href = conf.site+'login.html';
+      });
+
+      $scope.start = function() {
+        closeModals();
+        Idle.watch();
+        $scope.started = true;
+      };
+
+      $scope.stop = function() {
+        closeModals();
+        Idle.unwatch();
+        $scope.started = false;
+
+      };
 
 
 })
-.config(function ($routeProvider) {
-   var viewsFolder = "../views/";
 
+.config(['$routeProvider','KeepaliveProvider', 'IdleProvider',function ($routeProvider,KeepaliveProvider,IdleProvider) {
+   IdleProvider.idle(5);
+  IdleProvider.timeout(5);
+  KeepaliveProvider.interval(10);
+
+   var viewsFolder = "../views/";
     $routeProvider
     .when('/', { templateUrl: 'home.view.html', controller: 'home' })
     .when('/applications', { templateUrl: 'application.view.html', controller: 'applicationCtrl' })
@@ -32,8 +81,9 @@ var app = angular
     .when('/todo-map', { templateUrl: 'test.view.html',controller: 'MapCtrl' })
     .when('/map', { templateUrl: 'simple.map.view.html',controller: 'SimpleMapCtrl' })
     .otherwise({ redirectTo: '/' });
-})
-.run(function ($rootScope, menu, $window,conf) {
+}])
+.run(['Idle','$rootScope','menu','$window','conf',function (Idle,$rootScope, menu, $window,conf) {
+   Idle.watch();
     $rootScope.$on("$routeChangeSuccess", function (event, data) {
         $rootScope.controller = data.controller;
     });
@@ -85,5 +135,5 @@ var app = angular
     }
 
 
-})
+}])
 ;
