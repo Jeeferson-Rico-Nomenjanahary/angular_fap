@@ -63,7 +63,7 @@ angular.module('common.services')
         }
 
         factory.createCluster = function(map,markers){
-            // Ci-dessous, le clustering éventuel
+            // Ci-dessous, le clustering ï¿½ventuel
 
             var cluster, // Le MarkerClusterer
                 clusterOptions = {
